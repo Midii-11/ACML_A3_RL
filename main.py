@@ -49,6 +49,7 @@ def heatmap(p_domain, v_domain, Q, i):
     plt.title('Action map')
     plt.xlabel('Velocity')
     plt.ylabel('Position')
+    print(epsilon[i])
     path = ('Figures\\Fig_' + str(epsilon[i]) + ".png")
     plt.savefig(path)
     # plt.show()
@@ -137,7 +138,8 @@ def run(q_table_size, episodes, eps, i):
 if __name__ == '__main__':
     np.random.seed(42)
     q_table_size = 80
-    episodes = 2500
-    epsilon = [0.01, 0.1, 0.5, 0.9, 9]
-    for i in range(5):
+    episodes = 25000
+    epsilon = [0.01, 0.1, 0.5, 0.9, 9, 30]
+
+    for i in range(len(epsilon)):
         run(q_table_size, episodes, epsilon[i], i)
